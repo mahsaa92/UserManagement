@@ -1,0 +1,58 @@
+@import "../../variables.scss";
+
+html,
+body {
+  height: 100%
+}
+
+.container{
+  margin: 0 auto;
+
+.nav{
+    border: solid white 1px;
+    border-radius: 5px;
+    position: absolute;
+    width: 600px;
+    left: 32% !important;
+    top: 10%  !important;
+    @include breakpoint(xs){
+        width: 500px;
+        left: 1% !important;
+        top: 10%  !important;
+    }
+
+    h2 {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+#main-form{
+
+    @include breakpoint(md){
+    position: relative;
+    margin-top: 20%;
+    }
+    @include breakpoint(xs){
+        position: relative;
+        margin-top: 40%;
+        
+        }
+}
+
+#submit-form{
+
+  /* border-radius: 10px; */
+  background-color: #54818E;
+  box-shadow: -10px 5px 10px #A9BDBD;
+
+  @include breakpoint(xs){
+      position: relative;
+      left: 12% !important;
+  }
+}
+
+.lb-color{
+    color: $lb-color;
+}
+}

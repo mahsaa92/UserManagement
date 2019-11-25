@@ -1,0 +1,84 @@
+
+<section class="h-100 row align-items-center">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 lb-color nav">
+        <h2>User Management System</h2>
+    </div>
+  </div>
+<div class="row"  id="main-form">
+
+  <div class="col-md-4" id= "submit-form">
+    <form [formGroup]="this.userService.form" (ngSubmit)="onSubmit()">
+      <input type="hidden" formControlName="$key" />
+      <div class="form-group">
+        <label class="lb-color">First Name</label>
+        <input
+          formControlName="firstName"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': submitted && formControls.firstName.errors
+          }"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="submitted && formControls.firstName.errors"
+        >
+          <label *ngIf="formControls.firstName.errors.required"
+            >This field is required</label
+          >
+          <label *ngIf="formControls.firstName.errors.maxlength"
+            >Maximum 20 character</label
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="lb-color">Last Name</label>
+        <input
+          formControlName="lastName"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': submitted && formControls.lastName.errors
+          }"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="submitted && formControls.lastName.errors"
+        >
+          <label *ngIf="formControls.lastName.errors.required"
+            >This field is required</label
+          >
+          <label *ngIf="formControls.lastName.errors.maxlength"
+            >Maximum 30 character</label
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="lb-color">Email</label>
+        <input
+          formControlName="email"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && formControls.email.errors }"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="submitted && formControls.email.errors"
+        >
+          Invalid email address.
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Submit" />
+      </div>
+    </form>
+    <div class="alert alert-info" *ngIf="showSuccessMessage">
+      Submitted successfully.
+    </div>
+  </div>
+  <div class="col-md-1 "></div>
+  <div class="col-md-7">
+    <app-user-list></app-user-list>
+  </div>
+</div>
+</div>
+</section>
